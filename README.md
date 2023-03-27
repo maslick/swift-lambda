@@ -1,3 +1,8 @@
-# swift-custom-runtime
+# swift-lambda
 
-A description of this package.
+## Installation
+
+```shell
+$ Scripts/deploy.sh
+$ curl https://5a9ijjd103.execute-api.eu-central-1.amazonaws.com
+```
