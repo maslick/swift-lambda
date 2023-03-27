@@ -14,4 +14,4 @@ docker run --platform=$platflorm --rm -v "$(pwd)":/workspace -w /workspace build
 echo "done"
 
 echo "packaging lambda"
-docker run --platform=$platflorm --rm -v "$(pwd)":/workspace -w /workspace builder bash -cl "./scripts/package.sh $executable"
+docker run --platform=$platflorm --rm -v "$(pwd)":/workspace -w /workspace builder bash -cl "./Scripts/package.sh $executable"
