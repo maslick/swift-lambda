@@ -21,3 +21,7 @@ functions:
         memorySize: 128
         # architecture: x86_64
         architecture: arm64
+        events:
+          - httpApi:
+              path: /
+              method: post
