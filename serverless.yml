@@ -19,3 +19,5 @@ functions:
     hello:
         handler: MyLambda.handler
         memorySize: 128
+        # architecture: x86_64
+        architecture: arm64

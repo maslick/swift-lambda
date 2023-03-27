@@ -1,14 +1,17 @@
 set -eu
 
 executable="MyLambda"
+# platflorm="linux/amd64"
+platflorm="linux/arm64"
+
 
 echo "preparing docker build image"
-docker build --platform=linux/amd64 . -t builder
+docker build --platform=$platflorm . -t builder
 echo "done"
 
 echo "building executable"
-docker run --platform=linux/amd64 --rm -v "$(pwd)":/workspace -w /workspace builder bash -cl "swift build --product $executable -c release -Xswiftc -g"
+docker run --platform=$platflorm --rm -v "$(pwd)":/workspace -w /workspace builder bash -cl "swift build --product $executable -c release -Xswiftc -g"
 echo "done"
 
 echo "packaging lambda"
-docker run --platform=linux/amd64 --rm -v "$(pwd)":/workspace -w /workspace builder bash -cl "./scripts/package.sh $executable"
+docker run --platform=$platflorm --rm -v "$(pwd)":/workspace -w /workspace builder bash -cl "./scripts/package.sh $executable"
