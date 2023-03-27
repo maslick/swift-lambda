@@ -1,0 +1,21 @@
+service: helloworld-swift-aws
+
+package:
+    artifact: .build/lambda/MyLambda/lambda.zip
+
+provider:
+    name: aws
+    runtime: provided.al2
+    region: eu-central-1
+    iamRoleStatements:
+        - Effect: Allow
+          Action:
+              - logs:CreateLogGroup
+              - logs:CreateLogStream
+              - logs:PutLogEvents
+          Resource: "*"
+
+functions:
+    hello:
+        handler: MyLambda.handler
+        memorySize: 128
